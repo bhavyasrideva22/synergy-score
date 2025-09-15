@@ -2,6 +2,7 @@ import { AssessmentQuestion as QuestionType } from "@/types/assessment";
 import { QuestionCard } from "./QuestionCard";
 import { MultipleChoiceQuestion } from "./MultipleChoiceQuestion";
 import { LikertScaleQuestion } from "./LikertScaleQuestion";
+import { OpenEndedQuestion } from "./OpenEndedQuestion";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -52,6 +53,16 @@ export const AssessmentQuestion = ({
             lowLabel={question.lowLabel}
             highLabel={question.highLabel}
             scale={question.scale}
+            required={question.required}
+          />
+        );
+      
+      case "open-ended":
+        return (
+          <OpenEndedQuestion
+            question={question.question}
+            value={stringValue}
+            onChange={onChange}
             required={question.required}
           />
         );
